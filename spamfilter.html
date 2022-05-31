@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form> 
+    <h1>Chat</h1>
+    <label for ="msg">Message</label>
+    <input placeholder="Type message.." name="msg" id="newcomment">
+    <button class="btn" onclick="addComment()">Send</button>
+
+</form>
+    <div id="container"></div>
+ 
+    <script>
+
+        let comments = ["buy ViAgRA now","free xxx","innocent rabbit"]; 
+        console.log(comments);
+
+        function addComment(){
+            let name = document.getElementById("newcomment").value;
+            comments.push(name);
+            generateComments();
+            console.log(comments);
+        }
+
+         function generateComments(){
+            let commentsString="";
+            for (let comment of comments){
+               commentsString += `<div><input type = 'text' value= '${comment}' </div>`;
+           }
+            document.getElementById ("container").innerHTML=commentsString;
+           };
+            
+        document.addEventListener("DOMContentLoaded",function (){ 
+            generateComments();
+        });
+
+            //function checkSpam(str){
+            //let lowerStr = str.toLowerCase();
+           // return lowerStr.includes ('viagra') || lowerStr.includes ('xxx');
+        //}
+        
+    </script>
+</body>
+</html>
