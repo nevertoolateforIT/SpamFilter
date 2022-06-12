@@ -5,46 +5,42 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel ="stylesheet" href="spamfilter.css">
+
 </head>
 <body>
     <form> 
     <h1>Chat</h1>
-    <label for ="msg">Message</label>
-    <input placeholder="Type message.." name="msg" id="newcomment">
-    <button class="btn" onclick="addComment()">Send</button>
-
-</form>
+    <div>
+        <label for="author"> Name
+            <span id ="authorError"></span>
+        </label> 
+    </div>
+    <div>
+        <input placeholder="Your Name" type = "text" required id="author" name = "author" onkeyup="checkMessage" value = "" class = inputs/>
+    </div>
+    <div>
+        <label for="logo"> Logo
+            <span id ="logoError"></span>
+        </label> 
+    </div>
+    <div>
+        <img src="https://cdn-icons-png.flaticon.com/512/7088/7088463.png" alt = "logo" id = "logo" width="100" height ="100"/>
+    </div>
+    <div>
+        <label for ="msg">Message
+            <span id = "messageError"></span>
+        </label>
+    </div>
+    <textarea placeholder="Type message.." name="msg" id="newcomment" class= inputs></textarea>
+    <div id ="output"></div>
+    <div>
+        <button class="btn" type = "button" id = "button" onclick="addComment()">Send</button>
+    </div>
     <div id="container"></div>
+</form>
+    
  
-    <script>
-
-        let comments = ["buy ViAgRA now","free xxx","innocent rabbit"]; 
-        console.log(comments);
-
-        function addComment(){
-            let name = document.getElementById("newcomment").value;
-            comments.push(name);
-            generateComments();
-            console.log(comments);
-        }
-
-         function generateComments(){
-            let commentsString="";
-            for (let comment of comments){
-               commentsString += `<div><input type = 'text' value= '${comment}' </div>`;
-           }
-            document.getElementById ("container").innerHTML=commentsString;
-           };
-            
-        document.addEventListener("DOMContentLoaded",function (){ 
-            generateComments();
-        });
-
-            //function checkSpam(str){
-            //let lowerStr = str.toLowerCase();
-           // return lowerStr.includes ('viagra') || lowerStr.includes ('xxx');
-        //}
-        
-    </script>
+    <script src="spamfilter.js"></script>
 </body>
 </html>
